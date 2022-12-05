@@ -1,53 +1,114 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>SpaceBox</title>
+        <title>SpaceBox Example</title>
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="spacebox.css">
     </head>
     <body>
-        <!-- Box Container (Stretched) -->
-        <div class="box max-width">
+        <!-- Box Container -->
+        <div class="box">
 
-            <!-- Hero w/ Button Bar -->
-            <div class="hero-smal justify-l pad-3">
+            <!-- Hero -->
+            <div class="hero-small justify-l">
                 <div class="hero-body">
                     <p class="display">SpaceBox</p>
-                    <p class="caption">CSS problems? Houston, we have a solution</p>
+                    <p class="caption">CSS problems? Houston, we have a solution.</p>
                     <div class="button-bar">
-                        <button class="button primary"><i class="material-icons">download</i>Download</button>
-                        <button class="button">Documentation</button>
+                        <button class="button primary">
+                            <i class="material-icons">download</i>
+                            <span>Download</span>
+                        </button>
+                        <button class="button">
+                            <i class="material-icons">article</i>
+                            <span>Read the docs</span>
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Panel w/ Contents (Stretched) -->
-            <div class="panel sharp no-border">
-                <p class="title">A Punny Title</p>
-                <p class="subtitle">With a witty tagline to boot.</p>
-                <p class="body">Rings of Uranus the sky calls to us vanquish the impossible as a patch of light a mote of dust suspended in a sunbeam hydrogen atoms.</p>
-                <p class="body">Explorations dispassionate extraterrestrial observer another world white dwarf rich in heavy atoms hearts of the stars. The sky calls to us shores of the cosmic ocean great turbulent clouds encyclopaedia galactica circumnavigated brain is the seed of intelligence.</p>
+            <!-- Basic Panel -->
+            <div class="panel">
+                <p class="title">The No-Nonsense, Batteries-Included CSS Framework</p>
+                <p class="subtitle">Designed with simplicity in mind</p>
+                <p class="body">
+                    SpaceBox is a collection of CSS classes designed to make your life easier. If you have a lightbulb moment and want to get the most out of the fleeting moment of inspiration, 
+                    SpaceBox can help you put together an effective layout quickly, saving you from spending hours tinkering with the CSS to make everything look nice.
+                </p>
             </div>
 
-            <!-- HBox w/ Panels -->
-            <div class="box">
-                <div class="hbox">
-                    <div class="panel">
-                        <p class="title">Section A</p>
-                    </div>
+            <!-- Box w/ Contents -->
+            <div class="box pad-3">
+                <p class="title dim italic">"SpaceBox is the best CSS framework I've ever used, hands down, and I don't even HAVE hands."</p>
+                <p class="subtitle align-r">R. L. Person, Hacker News</p>
+            </div>
 
-                    <div class="panel">
-                        <p class="title">Section 2</p>
-                    </div>
+            <div class="box pad-3">
+                <p class="title dim italic">"SpaceBox could definitely beat Bootstrap and Bulma in a fist fight."</p>
+                <p class="subtitle align-r">Cave Johnson, Aperture Labs</p>
+            </div>
 
-                    <div class="panel">
-                        <p class="title">Section III</p>
+            <!-- HBox w/ Child Panels -->
+            <div class="hbox">
+                <!-- Basic Panel -->
+                <div class="panel width-half">
+                    <p class="title">Fast Prototyping?</p>
+                    <p class="subtitle">Fastest prototyping in the west, kiddo</p>
+                    <p class="body">
+                        I come up with a lot of random ideas, and I like to throw together quick prototypes while the idea is fresh. I always hate when I'm being held back by clunky CSS (or my own obsession with making my projects look nice)
+                        when I could just be writing code and having fun implementing functionality. That's why I made SpaceBox, which I designed with this exact type of scenario in mind.
+                    </p>
+                    <p class="body">
+                        Using SpaceBox, you can throw together a nice looking layout in just minutes, and the code will be clean and super easy to read and expand upon later. SpaceBox makes designing layouts fast and effortless.
+                    </p>
+                </div>
+
+                <!-- Panel w/ Code Block + Button Bar -->
+                <div class="panel width-half">
+                    <p class="title">Let's look at some basic code!</p>
+                    <p class="subtitle">In case you don't believe me</p>
+                    <p class="body">This right here is a quick example of an extremely basic layout using SpaceBox. From here, you can apply your own customizations or tweaks.</p>
+                    <p class="body">Just link the stylesheet, and you're good to go.</p>
+
+                        <div class="code height-4"><span>&lt;!doctype html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Example Layout&lt;/title&gt;
+        &lt;link rel="stylesheet" href="style.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="box"&gt;
+            &lt;p class="heading"&gt;Punny Title&lt;/p&gt;
+            &lt;p class="subheading"&gt;And a witty tagline too.&lt;/p&gt;
+            &lt;div class="panel"&gt;
+                &lt;p class="title"&gt;Quick & Painless&lt;/p&gt;
+                &lt;p class="subtitle"&gt;See how easy this is?&lt;/p&gt;
+                &lt;p class="body"&gt;You can do it too, probably. I don't know you.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</span></div>
+
+                    <div class="button-bar">
+                        <button class="button">
+                            <span>Wow, that sure is code!</span>
+                        </button>
+                        <button class="button primary">
+                            <span>Red Button</span>
+                        </button>
+                        <button class="button danger">
+                            <span>Danger Button!</span>
+                        </button>
                     </div>
                 </div>
             </div>
 
+            <!-- Footer -->
+            <div class="footer">
+                <p class="body">made with &#10084; by @leftbones</p>
+            </div>
         </div>
     </body>
 </html>
