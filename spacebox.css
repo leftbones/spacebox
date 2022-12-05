@@ -118,16 +118,17 @@ body {
 .box {
     display: flex;
     flex-direction: column;
-    max-width: 1024px;
-    margin: 1rem;
-    gap: 1rem;
+    width: 100%;
+    /* margin: 1rem; */
+    padding: 1rem;
+    /* gap: 1rem; */
 }
 
 .hbox {
     display: flex;
-    flex-direction: row;
-    /* height: 100%; */
-    /* height: fit-content; */
+    /* flex-direction: row; */
+    flex-flow: row wrap;
+    padding: 1rem;
     gap: 1rem;
 }
 
@@ -135,11 +136,12 @@ body {
     display: flex;
     flex-direction: column;
     background: var(--panel-color);
-    padding: 1rem;
     outline: .1rem solid var(--border-color);
     box-shadow: var(--shadow-regular);
-    /* height: 100%; */
-    /* height: fit-content; */
+    padding: 2rem;
+    width: 100%;
+    /* width: calc(50% - 0.5rem); */
+    flex: 1;
 }
 
 .hover-panel { transition: ease-in-out 150ms; }
@@ -176,6 +178,19 @@ body {
 }
 
 
+/* Typography */
+
+.display { font-size: var(--font-size-display); font-weight: var(--font-bold); margin-bottom: .5rem; }
+.caption { font-size: var(--font-size-caption); font-weight: var(--font-medium); filter: var(--dim-filter); margin-bottom: 2rem; }
+.heading { font-size: var(--font-size-heading); font-weight: var(--font-bold); }
+.subheading { font-size: var(--font-size-subheading); font-weight: var(--font-medium); }
+.title { font-size: var(--font-size-title); margin-bottom: 0.2rem; font-weight: var(--font-medium); }
+.subtitle { font-size: var(--font-size-subtitle); margin-bottom: 1rem; font-weight: var(--font-light); filter: var(--dim-filter); }
+.body { font-size: var(--font-size-body); font-weight: var(--font-regular); line-height: 1.5em; margin-bottom: 1rem;}
+
+/* .display, .caption, .heading, .subheading, .title, .subtitle, .body { hyphens: auto; } Not sure yet if I want this */
+
+
 /* Form Elements */
 
 .button-bar {
@@ -208,17 +223,6 @@ body {
 }
 
 
-/* Typography */
-
-.display { font-size: var(--font-size-display); font-weight: var(--font-bold); margin-bottom: .5rem; }
-.caption{ font-size: var(--font-size-caption); font-weight: var(--font-medium); filter: var(--dim-filter); margin-bottom: 2rem; }
-.heading { font-size: var(--font-size-heading); font-weight: var(--font-bold); }
-.subheading { font-size: var(--font-size-subheading); font-weight: var(--font-medium); }
-.title { font-size: var(--font-size-title); margin-bottom: 0.2rem; font-weight: var(--font-medium); }
-.subtitle { font-size: var(--font-size-subtitle); margin-bottom: 1rem; font-weight: var(--font-light); filter: var(--dim-filter); }
-.body { font-size: var(--font-size-body); font-weight: var(--font-regular); line-height: 1.5em; margin-bottom: 1rem;}
-
-
 /* Extras */
 
 .code {
@@ -228,10 +232,11 @@ body {
     font-size: var(--font-size-mono);
     line-height: 1.25rem;
     box-shadow: var(--shadow-inset);
-    margin: 1rem 0rem 1rem 0rem;
+    /* margin: 1rem 0rem 1rem 0rem; */
     padding: 1rem;
-    overflow-x: auto;
-    overflow-y: auto;
+    overflow: auto;
+    /* overflow-x: auto; */
+    /* overflow-y: auto; */
     white-space: pre;
 }
 
@@ -276,7 +281,8 @@ body {
 .width-2  { width: 20%; }
 .width-3  { width: 30%; }
 .width-4  { width: 40%; }
-.width-5  { width: 50%; }
+/* .width-5  { width: 50%; } */
+.width-5 { width: calc(50% - 0.5rem); }
 .width-6  { width: 60%; }
 .width-7  { width: 70%; }
 .width-8  { width: 80%; }
@@ -285,13 +291,15 @@ body {
 
 .width-quarter { width: 25%; }
 .width-third   { width: calc(100% / 3); }
-.width-half    { width: 50%; }
+/* .width-half    { width: 50%; } */
+/* .width-half { width: calc(50% - 0.5rem); } */
+.width-half { width: calc(50% - 0.5rem); }
 .width-full    { width: 100%; }
 
 .width-min { width: fit-content; }
 .width-max { width: 100%; }
 
-.height-1 { height: 10%; }
+/* .height-1 { height: 10%; }
 .height-2 { height: 20%; }
 .height-3 { height: 30%; }
 .height-4 { height: 40%; }
@@ -304,7 +312,7 @@ body {
 .height-quarter { height: 25%; }
 .height-third   { height: calc(100% / 3); }
 .height-half    { height: 50%; }
-.height-full    { height: 100%; }
+.height-full    { height: 100%; } */
 
 .height-min { height: fit-content; }
 .height-max { height: 100%; }
@@ -347,15 +355,15 @@ body {
 .danger { background: var(--danger); color: var(--btn-dark-text-color); }
 
 
-/* Responsive Layout */
+/* Responsive Layout (Unfinished) */
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
     .box, .hbox { max-width: 100vw; flex-wrap: wrap; }
     .panel { flex: 1; }
-}
+} */
 
 
-/* Censorship! */
+/* Censorship! (Redact filler text to make screenshots look nicer)*/
 
 /* .display, .caption, .heading, .subheading, .title, .subtitle, .body { background-color: rgba(0, 0, 0, .2); color: transparent; }
 .box > .title, .box > .subtitle { background-color: rgba(0, 0, 0, .2); color: transparent; }
