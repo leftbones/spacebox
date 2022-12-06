@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="spacebox.css">
     </head>
-    <body>
+    <body class="pad-1">
         <!-- Box Container -->
         <div class="box">
 
@@ -17,7 +17,7 @@
                 <div class="hero-body">
                     <p class="display">SpaceBox</p>
                     <p class="caption">CSS problems? Houston, we have a solution.</p>
-                    <div class="button-bar">
+                    <div class="hbox">
                         <button class="button primary">
                             <i class="material-icons">download</i>
                             <span>Download</span>
@@ -30,83 +30,97 @@
                 </div>
             </div>
 
+            <!-- HBox w/ Panel + Card -->
+
             <!-- Basic Panel -->
             <div class="panel">
-                <p class="title">The No-Nonsense, Batteries-Included CSS Framework</p>
-                <p class="subtitle">Designed with simplicity in mind</p>
-                <p class="body">
-                    SpaceBox is a collection of CSS classes designed to make your life easier. If you have a lightbulb moment and want to get the most out of the fleeting moment of inspiration, 
-                    SpaceBox can help you put together an effective layout quickly, saving you from spending hours tinkering with the CSS to make everything look nice.
-                </p>
+                <div class="hbox equal-h">
+                    <div class="box size-6 pad-0">
+                    <div class="panel-body">
+                        <p class="title">The No-Nonsense, Batteries-Included CSS Framework</p>
+                        <p class="subtitle pad-b1">Designed with simplicity in mind</p>
+                        <p class="body">
+                            SpaceBox is a collection of CSS classes designed to make your life easier. If you have a lightbulb moment and want to get the most out of the fleeting moment of inspiration, 
+                            SpaceBox can help you put together an effective layout quickly, saving you from spending hours tinkering with the CSS to make everything look nice.
+                        </p>
+                    </div>
+                    </div>
+
+                    <!-- Basic Card -->
+                    <div class="box size-4 pad-1">
+                        <div class="panel">
+                            <div class="panel-header">Panel Header</div>
+                            <div class="panel-body">
+                                <p class="body">This is a card-like panel. Just like a regular panel, but customized with clever modularity. To make this example look better, I'm adding this filler paragraph. This paragraph is the first of two paragraphs.
+                                </p>
+                                <p class="body">This is the second paragraph of filler text. It is shorter than the first, and is used to show that the body elements have vertical gaps.</p>
+                                <div class="panel-buttons">
+                                    <button class="panel-btn-left">Left</button>
+                                    <button class="panel-btn-center">Center</button>
+                                    <button class="panel-btn-right">Right</button>
+                                </div>
+                            </div>
+                            <div class="panel-footer">Panel Footer</div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
-            <!-- Box w/ Contents -->
-            <div class="box pad-3">
-                <p class="title dim italic">"SpaceBox is the best CSS framework I've ever used, hands down, and I don't even HAVE hands."</p>
-                <p class="subtitle align-r">R. L. Person, Hacker News</p>
-            </div>
+            <!-- HBox w/ Panels -->
+            <div class="hbox equal-h">
 
-            <div class="box pad-3">
-                <p class="title dim italic">"SpaceBox could definitely beat Bootstrap and Bulma in a fist fight."</p>
-                <p class="subtitle align-r">Cave Johnson, Aperture Labs</p>
-            </div>
-
-            <!-- HBox w/ Child Panels -->
-            <div class="hbox">
                 <!-- Basic Panel -->
-                <div class="panel width-half">
-                    <p class="title">Fast prototyping?</p>
-                    <p class="subtitle">Fastest prototyping in the west, kiddo</p>
-                    <p class="body">
-                        I come up with a lot of random ideas, and I like to throw together quick prototypes while the idea is fresh. I always hate when I'm being held back by clunky CSS (or my own obsession with making my projects look nice)
-                        when I could just be writing code and having fun implementing functionality. That's why I made SpaceBox, which I designed with this exact type of scenario in mind.
-                    </p>
-                    <p class="body">
-                        Using SpaceBox, you can throw together a nice looking layout in just minutes, and the code will be clean and super easy to read and expand upon later. SpaceBox makes designing layouts fast and effortless.
-                    </p>
+                <div class="panel size-half">
+                    <div class="panel-body">
+                        <p class="title">Fast prototyping?</p>
+                        <p class="subtitle pad-b1">Fastest prototyping in the west, kiddo</p>
+                        <p class="body">
+                            I come up with a lot of random ideas, and I like to throw together quick prototypes while the idea is fresh. I always hate when I'm being held back by clunky CSS (or my own obsession with making my projects look nice)
+                            when I could just be writing code and having fun implementing functionality. That's why I made SpaceBox, which I designed with this exact type of scenario in mind.
+                        </p>
+                        <p class="body">
+                            Using SpaceBox, you can throw together a nice looking layout in just minutes, and the code will be clean and super easy to read and expand upon later. SpaceBox makes designing layouts fast and effortless.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Panel w/ Code Block + Button Bar -->
-                <div class="panel width-half">
-                    <p class="title">Here's a basic example!</p>
-                    <p class="subtitle">In case you don't believe me</p>
-                    <p class="body">This right here is a quick example of an extremely basic layout using SpaceBox. From here, you can apply your own customizations or tweaks.</p>
-                    <p class="body">Just link the stylesheet, and you're good to go.</p>
+                <div class="panel size-half">
+                    <div class="panel-body">
+                        <p class="title">Here's a basic example!</p>
+                        <p class="subtitle pad-b1">In case you don't believe me</p>
+                        <p class="body">This right here is a quick example of an extremely basic layout using SpaceBox. From here, you can apply your own customizations or tweaks.</p>
+                        <p class="body">Just link the stylesheet, and you're good to go.</p>
 
                         <div class="code"><span>&lt;!doctype html&gt;
-    &lt;head&gt;
-        &lt;title&gt;Example Layout&lt;/title&gt;
-        &lt;link rel="stylesheet" href="style.css"&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class="box"&gt;
-            &lt;p class="heading"&gt;Punny Title&lt;/p&gt;
-            &lt;p class="subheading"&gt;And a witty tagline too.&lt;/p&gt;
-            &lt;div class="panel"&gt;
-                &lt;p class="title"&gt;Quick & Painless&lt;/p&gt;
-                &lt;p class="subtitle"&gt;See how easy this is?&lt;/p&gt;
-                &lt;p class="body"&gt;You can do it too, probably. I don't know you.&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/body&gt;
-&lt;/html&gt;</span></div>
+<!--                 -->    &lt;head&gt;
+<!--   this          -->        &lt;title&gt;Example Layout&lt;/title&gt;
+<!--                 -->        &lt;link rel="stylesheet" href="style.css"&gt;
+<!--                 -->    &lt;/head&gt;
+<!--   is            -->    &lt;body&gt;
+<!--                 -->        &lt;div class="box"&gt;
+<!--                 -->            &lt;p class="heading"&gt;Punny Title&lt;/p&gt;
+<!--   the           -->            &lt;p class="subheading"&gt;And a witty tagline too.&lt;/p&gt;
+<!--                 -->            &lt;div class="panel"&gt;
+<!--                 -->                &lt;p class="title"&gt;Quick & Painless&lt;/p&gt;
+<!--   WORST         -->                &lt;p class="subtitle"&gt;See how easy this is?&lt;/p&gt;
+<!--                 -->                &lt;p class="body"&gt;You can do it too, probably. I don't know you.&lt;/p&gt;
+<!--                 -->            &lt;/div&gt;
+<!--   !!!           -->        &lt;/div&gt;
+<!--                 -->    &lt;/body&gt;
+<!--                 -->&lt;/html&gt;</span></div>
 
-                    <div class="button-bar">
-                        <button class="button">
-                            <span>Wow, that sure is code!</span>
-                        </button>
-                        <button class="button primary">
-                            <span>Red Button</span>
-                        </button>
-                        <button class="button danger">
-                            <span>Danger Button!</span>
-                        </button>
+                        <div class="button-bar size-10 pad-0 pad-t1">
+                            <button class="button"><span>More Examples</span></button>
+                            <button class="button" disabled><span>Disabled Button</span></button>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Footer -->
-            <div class="footer">
+            <div class="footer pad-t1">
                 <p class="body">made with &#10084; by @leftbones</p>
             </div>
         </div>

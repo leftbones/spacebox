@@ -1,18 +1,3 @@
-/*
-Current Name
-- SpaceBox (alt: Spacebox, Space Box)
-
-Name Ideas
-- Orbox (like Orbit)
-- Nebulayout (Nebula + layout)
-- Umbrox (Umbra + box, alt: Penumbrox)
-- Syzygy
-
-Words I like
-- Orbit
-- Syzygy (a pair of corresponding opposites, eg. sun and moon, or form and function)
-*/
-
 /* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Inter:light,regular,medium,semibold,bold');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
@@ -31,7 +16,7 @@ Words I like
     --warning: #ff7538;
     --danger: #ef476f;
 
-    /* Light Theme */
+    /* Element Colors */
     --bg-color: #f0f0f6;
     --bg-dark-color: #bebec2;
     --panel-color: #ffffff;
@@ -40,15 +25,6 @@ Words I like
     --shadow-color: #222323;
     --btn-dark-text-color: #ffffff;
     --btn-light-text-color: #555656;
-
-    /* Dark Theme */
-    /* --bg-color: #222323;
-    --panel-color: #333434;
-    --text-color: #f0f0f6;
-    --border-color: #191a1a;
-    --shadow-color: #070808;
-    --btn-text-color: #f0f0f6;
-
 
     /* Filters */
     --dim-filter: opacity(.75);
@@ -94,12 +70,11 @@ Words I like
 *, *:before, *:after {
     margin: 0;
     padding: 0;
-    border-radius: 4px; /* Might remove this later but for now it seems fine, can be overridden with the 'sharp' modifier */
+    border-radius: 4px; /* Might remove this later but for now it seems fine, can always be overridden with the 'sharp' modifier */
     box-sizing: inherit;
 }
 
 html {
-    /* overflow-x: hidden; */
     box-sizing: border-box;
 }
 
@@ -115,22 +90,15 @@ body {
 
 /* Containers */
 
-.box {
+.box, .hbox {
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* margin: 1rem; */
-    padding: 1rem;
-    /* gap: 1rem; */
-}
-
-.hbox {
-    display: flex;
-    /* flex-direction: row; */
-    flex-flow: row wrap;
-    padding: 1rem;
     gap: 1rem;
 }
+
+.hbox { flex-flow: row wrap; }
+.hbox.equal-h > .panel { height: auto; }
 
 .panel, .hover-panel {
     display: flex;
@@ -138,23 +106,48 @@ body {
     background: var(--panel-color);
     outline: .1rem solid var(--border-color);
     box-shadow: var(--shadow-regular);
-    padding: 2rem;
-    width: 100%;
-    /* width: calc(50% - 0.5rem); */
-    flex: 1;
+    height: min-content;
+}
+
+.panel-body {
+    flex-grow: 1;
+    margin: 1rem 1rem;
+}
+.panel-body > .hbox { margin: 0; }
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    border-radius: 4px 4px 0px 0px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    outline: .1rem solid var(--border-color);
+}
+
+.panel-footer {
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    border-radius: 0px 0px 4px 4px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    outline: 0.1rem solid var(--border-color);
+}
+
+.panel-buttons > * { flex: 1; }
+.panel-buttons {
+    display: flex;
 }
 
 .hover-panel { transition: ease-in-out 150ms; }
-
 .hover-panel:hover {
-    transform: translateY(-0.5rem);
+    transform: translateY(-0.2rem);
     box-shadow: var(--shadow-heavy);
     transition: ease-in-out 150ms;
 }
 
 .hover-panel:active {
     transform: translateY(0.1rem);
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-none);
     transition: ease-in-out 50ms;
 }
 
@@ -174,35 +167,29 @@ body {
     filter: opacity(.75);
     justify-content: center;
     align-items: center;
-    padding: 1rem;
 }
 
 
 /* Typography */
 
-.display { font-size: var(--font-size-display); font-weight: var(--font-bold); margin-bottom: .5rem; }
+.display { font-size: var(--font-size-display); font-weight: var(--font-bold); margin-bottom: 0.5rem; }
 .caption { font-size: var(--font-size-caption); font-weight: var(--font-medium); filter: var(--dim-filter); margin-bottom: 2rem; }
 .heading { font-size: var(--font-size-heading); font-weight: var(--font-bold); }
 .subheading { font-size: var(--font-size-subheading); font-weight: var(--font-medium); }
 .title { font-size: var(--font-size-title); margin-bottom: 0.2rem; font-weight: var(--font-medium); }
-.subtitle { font-size: var(--font-size-subtitle); margin-bottom: 1rem; font-weight: var(--font-light); filter: var(--dim-filter); }
-.body { font-size: var(--font-size-body); font-weight: var(--font-regular); line-height: 1.5em; margin-bottom: 1rem;}
-
-/* .display, .caption, .heading, .subheading, .title, .subtitle, .body { hyphens: auto; } Not sure yet if I want this */
+.subtitle { font-size: var(--font-size-subtitle); font-weight: var(--font-light); filter: var(--dim-filter); }
+.body { font-size: var(--font-size-body); font-weight: var(--font-regular); line-height: 1.5em; margin-bottom: 1rem; }
 
 
 /* Form Elements */
 
-.button-bar {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 0.5rem;
-}
-
-.button {
+.button,
+.panel-btn-left,
+.panel-btn-right,
+.panel-btn-center {
     display: flex;
     align-items: center;
+    justify-content: center;
     background: var(--default);
     color: var(--btn-light-text-color);
     font-size: 1rem;
@@ -212,15 +199,29 @@ body {
     border-bottom: var(--btn-height) solid rgba(0, 0, 0, .2);
     user-select: none;
     -webkit-user-select: none;
+    white-space: nowrap;
+    width: min-content;
 }
 
 .button:hover { cursor: pointer; filter: brightness(1.05); }
+.button:disabled { cursor: initial; opacity: 0.4; }
 
-.button:active {
+.button.primary:disabled,
+.button.success:disabled,
+.button.alert:disabled,
+.button.warning:disabled,
+.button.danger:disabled
+{ filter: brightness(1.2) !important; }
+
+.button:active, .button:disabled {
     filter: brightness(0.95);
     border-bottom: 0.1rem solid rgba(0, 0, 0, .2);
     margin-top: calc(var(--btn-height) - 0.1rem);
 }
+
+.panel-btn-left { border-radius: 4px 0px 0px 4px; }
+.panel-btn-right { border-radius: 0px 4px 4px 0px; }
+.panel-btn-center { border-radius: 0; border-left: 0; border-right: 0; }
 
 
 /* Extras */
@@ -232,25 +233,40 @@ body {
     font-size: var(--font-size-mono);
     line-height: 1.25rem;
     box-shadow: var(--shadow-inset);
-    /* margin: 1rem 0rem 1rem 0rem; */
     padding: 1rem;
     overflow: auto;
-    /* overflow-x: auto; */
-    /* overflow-y: auto; */
     white-space: pre;
 }
 
-.material-icons { margin-right: .5rem; } /* Revisit this later? */
+.material-icons { margin: -0.2rem 0.2rem -0.2rem -0.2rem; } /* Revisit this later somehow */
 
 
-/* Spacing Modifiers */
+/* Spacing Modifiers (probably does not play nicely with the size modifiers) */
 
-.space { padding: 1rem; }
+.pad-0, .pad-all-0 { padding: 0rem; }
+.pad-1, .pad-all-1 { padding: 1rem; }
+.pad-2, .pad-all-2 { padding: 2rem; }
+.pad-3, .pad-all-3 { padding: 3rem; }
 
-.pad-0 { padding: 0rem; }
-.pad-1 { padding: 1rem; }
-.pad-2 { padding: 2rem; }
-.pad-3 { padding: 3rem; }
+.pad-t0, .pad-top-0 { padding-top: 0rem; }
+.pad-t1, .pad-top-1 { padding-top: 1rem; }
+.pad-t2, .pad-top-2 { padding-top: 2rem; }
+.pad-t3, .pad-top-3 { padding-top: 3rem; }
+
+.pad-b0, .pad-bottom-0 { padding-bottom: 0rem; }
+.pad-b1, .pad-bottom-1 { padding-bottom: 1rem; }
+.pad-b2, .pad-bottom-2 { padding-bottom: 2rem; }
+.pad-b3, .pad-bottom-3 { padding-bottom: 3rem; }
+
+.pad-l0, .pad-left-0 { padding-left: 0rem; }
+.pad-l1, .pad-left-1 { padding-left: 1rem; }
+.pad-l2, .pad-left-2 { padding-left: 2rem; }
+.pad-l3, .pad-left-3 { padding-left: 3rem; }
+
+.pad-r0, .pad-right-0 { padding-right: 0rem; }
+.pad-r1, .pad-right-1 { padding-right: 1rem; }
+.pad-r2, .pad-right-2 { padding-right: 2rem; }
+.pad-r3, .pad-right-3 { padding-right: 3rem; }
 
 .gap-0 { gap: 0rem; }
 .gap-1 { gap: 1rem; }
@@ -260,63 +276,41 @@ body {
 
 /* Alignment Modifiers */
 
-.align-l { align-self: flex-start; } /* 'align' modifiers affect elements and children */
-.align-r { align-self: flex-end; }
-.align-c { align-self: center; }
+.align-l, .align-left { align-self: flex-start; } /* 'align' modifiers affect elements and children */
+.align-r, .align-right { align-self: flex-end; }
+.align-c, .align-center { align-self: center; }
 
-.justify-l { justify-content: flex-start;} /* 'justify' modifiers only affect children */
-.justify-r { justify-content: flex-end; }
-.justify-c { justify-content: center; }
-.justify-t { align-items: flex-start; }
-.justify-b { align-items: flex-end; }
+.justify-l, .justify-left { justify-content: flex-start;} /* 'justify' modifiers only affect children */
+.justify-r, .justify-right { justify-content: flex-end; }
+.justify-c, .justify-center { justify-content: center; }
+.justify-t, .justify-top { align-items: flex-start; }
+.justify-b, .justify-bottom { align-items: flex-end; }
 
-.text-l { text-align: left; } /* 'text' modifiers only affect text */
-.text-r { text-align: right; }
-.text-c { text-align: center; }
+.text-l, .text-left { text-align: left; } /* 'text' modifiers only affect text */
+.text-r, .text-right { text-align: right; }
+.text-c, .text-center { text-align: center; }
 
 
 /* Size Modifiers */
 
-.width-1  { width: 10%; }
-.width-2  { width: 20%; }
-.width-3  { width: 30%; }
-.width-4  { width: 40%; }
-/* .width-5  { width: 50%; } */
-.width-5 { width: calc(50% - 0.5rem); }
-.width-6  { width: 60%; }
-.width-7  { width: 70%; }
-.width-8  { width: 80%; }
-.width-9  { width: 90%; }
-.width-10 { width: 100%; }
+.size-1              { width: calc(10% - 0.9rem); }
+.size-2              { width: calc(20% - 0.8rem); }
+.size-quarter        { width: calc(25% - 0.750rem); }
+.size-3              { width: calc(30% - 0.7rem); }
+.size-third          { width: calc(33.333% - 0.666rem); }
+.size-4              { width: calc(40% - 0.6rem); }
+.size-half, .size-5  { width: calc(50% - 0.5rem); }
+.size-6              { width: calc(60% - 0.4rem); }
+.size-7              { width: calc(70% - 0.3rem); }
+.size-8              { width: calc(80% - 0.2rem); }
+.size-9              { width: calc(90% - 0.1rem); }
+.size-full, .size-10 { width: 100%; }
 
-.width-quarter { width: 25%; }
-.width-third   { width: calc(100% / 3); }
-/* .width-half    { width: 50%; } */
-/* .width-half { width: calc(50% - 0.5rem); } */
-.width-half { width: calc(50% - 0.5rem); }
-.width-full    { width: 100%; }
+.width-min { width: min-content; } /* Unsure if these four are needed `min` might be redundant since that's default behavior */
+.width-max { width: auto; }
 
-.width-min { width: fit-content; }
-.width-max { width: 100%; }
-
-/* .height-1 { height: 10%; }
-.height-2 { height: 20%; }
-.height-3 { height: 30%; }
-.height-4 { height: 40%; }
-.height-5 { height: 50%; }
-.height-6 { height: 60%; }
-.height-7 { height: 70%; }
-.height-8 { height: 80%; }
-.height-9 { height: 90%; }
-
-.height-quarter { height: 25%; }
-.height-third   { height: calc(100% / 3); }
-.height-half    { height: 50%; }
-.height-full    { height: 100%; } */
-
-.height-min { height: fit-content; }
-.height-max { height: 100%; }
-
+.height-min { height: min-content; }
+.height-max { height: auto; }
 
 /* Font Modifiers */
 
