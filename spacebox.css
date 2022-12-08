@@ -45,6 +45,7 @@
     --shadow-none: 0 0 0 0;
 
     /* Font Sizes */
+    --font-size-jumbo: 5rem;
     --font-size-display: 3rem;
     --font-size-caption: 1.5rem;
     --font-size-title: 1.5rem;
@@ -92,6 +93,7 @@ body {
 /* Containers */
 
 .box, .hbox {
+    background: transparent;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -174,6 +176,7 @@ body {
 
 /* Typography */
 
+.jumbo { font-size: var(--font-size-jumbo); font-weight: var(--font-bold); }
 .display { font-size: var(--font-size-display); font-weight: var(--font-bold); margin-bottom: 0.5rem; }
 .caption { font-size: var(--font-size-caption); font-weight: var(--font-medium); filter: var(--dim-filter); margin-bottom: 2rem; }
 .title { font-size: var(--font-size-title); margin-bottom: 0.2rem; font-weight: var(--font-medium); }
@@ -244,6 +247,9 @@ body {
     white-space: pre;
 }
 
+
+/* Experimental */
+
 .material-icons { margin: -0.2rem 0.2rem -0.2rem -0.2rem; } /* Revisit this later somehow */
 
 
@@ -281,6 +287,7 @@ body {
 
 
 /* Alignment Modifiers */
+/* TODO: Change these to have more descriptive names, it's not immediately clear what can be used where and what affects what (study EXACTLY how this works in flexbox) */
 
 .align-l, .align-left { align-self: flex-start; } /* 'align' modifiers affect elements and children */
 .align-r, .align-right { align-self: flex-end; }
@@ -318,6 +325,9 @@ body {
 .height-min { height: min-content; }
 .height-max { height: auto; }
 
+.width-v { width: 100vw; }
+.height-v { height: 100vh; }
+
 /* Font Modifiers */
 
 .light { font-weight: 300; }
@@ -342,6 +352,11 @@ body {
 .no-bg { background: none; }
 
 .sharp { border-radius: 0px; }
+
+
+/* Wrap Modifiers */
+
+.no-wrap { white-space: nowrap; } /* Add more modifiers to go along with this one */
 
 
 /* Color Modifiers */
