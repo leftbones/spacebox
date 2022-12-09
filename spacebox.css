@@ -95,12 +95,12 @@ body {
 .box, .hbox {
     background: transparent;
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
     width: 100%;
-    gap: 1rem;
+    gap: 1rem 1rem;
 }
 
-.hbox { flex-flow: row wrap; }
+.hbox { flex-flow: row wrap; row-gap: 1rem; }
 .hbox.equal-h > .panel { height: auto; }
 .hbox.fill > * { flex: 1; }
 
@@ -155,15 +155,18 @@ body {
     transition: ease-in-out 50ms;
 }
 
-.hero, .hero-small {
+.hero, .hero-medium, .hero-small {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 500px;
     width: 100%;
+    /* background: var(--danger); */
 }
 
-.hero-small { height: 250px; }
+.hero-medium { height: 250px; }
+.hero-small { height: 150px; }
+
 .hero-body { margin: 1rem; }
 
 .footer {
@@ -177,9 +180,9 @@ body {
 /* Typography */
 
 .jumbo { font-size: var(--font-size-jumbo); font-weight: var(--font-bold); }
-.display { font-size: var(--font-size-display); font-weight: var(--font-bold); margin-bottom: 0.5rem; }
-.caption { font-size: var(--font-size-caption); font-weight: var(--font-medium); filter: var(--dim-filter); margin-bottom: 2rem; }
-.title { font-size: var(--font-size-title); margin-bottom: 0.2rem; font-weight: var(--font-medium); }
+.display { font-size: var(--font-size-display); font-weight: var(--font-bold); }
+.caption { font-size: var(--font-size-caption); font-weight: var(--font-medium); filter: var(--dim-filter); }
+.title { font-size: var(--font-size-title); font-weight: var(--font-medium); }
 .subtitle { font-size: var(--font-size-subtitle); font-weight: var(--font-regular); filter: var(--dim-filter); }
 .heading { font-size: var(--font-size-heading); font-weight: var(--font-medium); }
 .subheading { font-size: var(--font-size-subheading); font-weight: var(--font-regular); filter: var(--dim-filter);}
@@ -337,6 +340,8 @@ body {
 
 .italic { font-style: italic; }
 
+.mono { font-family: 'Source Code Pro', sans-serif; font-size: var(--font-size-mono); }
+
 
 /* Style Modifiers */
 
@@ -373,10 +378,9 @@ body {
 
 /* Responsive Layout (Unfinished) */
 
-/* @media screen and (max-width: 1024px) {
-    .box, .hbox { max-width: 100vw; flex-wrap: wrap; }
-    .panel { flex: 1; }
-} */
+@media screen and (max-width: 1024px) {
+
+}
 
 
 /* Censorship! (Redact filler text to make screenshots look nicer)*/
