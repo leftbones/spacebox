@@ -1,6 +1,7 @@
-/* Fonts */
+/* Imports */
+
 @import url('https://fonts.googleapis.com/css?family=Inter:light,regular,medium,semibold,bold');
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:light,regular,medium,semibold,bold');
 
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
@@ -26,6 +27,9 @@
     --shadow-color: #222323;
     --btn-dark-text-color: #ffffff;
     --btn-light-text-color: #555656;
+    --table-border-color: #bebec2;
+    --tr-bg-color: #f0f0f6;
+    --th-bg-color: #e1e1e6;
 
     /* Filters */
     --dim-filter: opacity(.6);
@@ -101,8 +105,8 @@ body {
 }
 
 .hbox { flex-flow: row wrap; row-gap: 1rem; }
-.hbox.equal-h > .panel { height: auto; }
 .hbox.fill > * { flex: 1; }
+.hbox.equal-h > .panel { height: auto; }
 
 .panel, .hover-panel {
     display: flex;
@@ -161,7 +165,6 @@ body {
     align-items: center;
     height: 500px;
     width: 100%;
-    /* background: var(--danger); */
 }
 
 .hero-medium { height: 250px; }
@@ -238,6 +241,29 @@ body {
 
 /* Extras */
 
+.table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.table tr, th, td {
+    border: 1px solid var(--table-border-color);
+    padding: 0.25rem;
+    font-weight: var(--font-regular);
+}
+
+.table th { font-weight: var(--font-medium); }
+
+.table tr:nth-child(even) { background-color: var(--tr-bg-color); }
+
+.table.no-border tr, th, td {
+    border: 0px;
+    border-radius: 0px;
+}
+
+
 .code {
     display: block;
     background: var(--bg-color);
@@ -253,7 +279,7 @@ body {
 
 /* Experimental */
 
-.material-icons { margin: -0.2rem 0.2rem -0.2rem -0.2rem; } /* Revisit this later somehow */
+/* .material-icons, .material-icons-outlined { margin: -0.2rem 0.2rem -0.2rem -0.2rem; } Revisit this later somehow */
 
 
 /* Spacing Modifiers (probably does not play nicely with the size modifiers) */
@@ -287,6 +313,8 @@ body {
 .gap-1 { gap: 1rem; }
 .gap-2 { gap: 2rem; }
 .gap-3 { gap: 3rem; }
+
+.margin-0 { margin: 0; }
 
 
 /* Alignment Modifiers */
@@ -333,10 +361,11 @@ body {
 
 /* Font Modifiers */
 
-.light { font-weight: 300; }
-.regular { font-weight: 400; }
-.medium { font-weight: 500; }
-.bold { font-weight: 600; }
+.light { font-weight: var(--font-light); }
+.regular { font-weight: var(--font-regular); }
+.medium { font-weight: var(--font-medium); }
+.bold { font-weight: var(--font-bold); }
+.heavy { font-weight: var(--font-heavy); }
 
 .italic { font-style: italic; }
 
